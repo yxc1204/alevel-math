@@ -1,5 +1,5 @@
 
-NAME := D052QianYixiao
+NAME := main
 LATEXMK := latexmk
 LATEXMKFLAGS := -xelatex
 TEX = $(shell find . -name '*.tex')

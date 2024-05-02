@@ -1,33 +1,42 @@
 
-\documentclass[lang=cn,newtx,10pt,scheme=chinese]{elegantbook}
+\documentclass[cn,10pt,citestyle=gb7714-2015,bibstyle=gb7714-2015,bibtex]{elegantbook}
+% \documentclass[cn,10pt,math=newtx]{elegantbook}
+
+\title{数学分析笔记}
+\author{Reichtum}
+\institute{ZheJiang University}
+\date{\today}
+\version{0.1}
+\extrainfo{There is nothing in the understanding which has not come from the senses, except the understanding itself, or the one who understands ———Gottfried Wilhelm Leibniz}
+\setcounter{tocdepth}{3}
+%\logo{ZJU.png}
+% \cover{cover.png}
+\everymath{\displaystyle}
+\usepackage{esint}
+\newtheorem{skill}{技巧}[section]
+
+\usepackage{bm}
+
+
 
 \begin{document}
+\maketitle
+\frontmatter
+\tableofcontents
+\newpage
 
-\chapter{积分中的换元法}
+\mainmatter
+\newpage
+\chapter{Further Calculus}
+\input{ch/FurtherCalculus.tex}
+%\newpage
+%\chapter{xxx}
+%\input{xxx}
 
-\begin{introduction}
-\item 第一类换元积分法
-\item 第二类换元积分法
-\end{introduction}
 
-\section{不定积分中的换元法}
-\begin{theorem}[第一类换元积分法]
-  \\
-  \\
-\end{theorem}
-
-\begin{note}[适用场景]
-  \\
-\end{note}
-
-\begin{note}[解题步骤]
-  \\
-\end{note}
-
-\begin{example}
-  \\
-  计算不定积分：$$
-\end{example}
+%整段注释：进入可视模式 spc m ;
+%进入shell ： spc spc shell;
+%makefile: 帮助简化编译过程
 
 
 \end{document}
