@@ -2,75 +2,122 @@
 
 \begin{document}
 \chapter{Integration by substitution}
-\section{第一类换元积分法}
+\section{Integrate with a given substitution}
+给定换元：$u=g(x)$ (记其反函数为$x=h(u)$)，
+通过以下方式将关于x的不定积分换元为关于u的不定积分：
+\begin{equation*}
+  \int f(x)\mathrm{d}x = F(x) \overset{\rm{*}} = F(h(u)) = \int f(h(u)) h^{\prime}(u)\mathrm{d}u =  \int \tilde{f}(u)\frac{\mathrm{d}x}{\mathrm{d}u}\mathrm{d}u 
+\end{equation*}
 
-\subsection{不定积分的第一类换元积分法}
-对于$\int f(x) dx$，若满足以下两点，则可以用第一类换元积分法计算。
-\begin{itemize}
-\item $f(x)$形如$\tilde{f}(g(x))g'(x)$，即$\int f(x)dx = \int \tilde{f}(g(x))g'(x)dx = \int \tilde{f}(g(x))dg(x)$；
-\item 函数$\tilde{f}(u)$的不定积分容易计算，即$\int \tilde{f}(u)du = \tilde{F}(u)$易知.
-\end{itemize}
-\begin{theorem}[第一类换元积分法]
-对于不定积分$\int f(x)dx$，用$u=g(x)$对原式作变量代换，于是：
-  \begin{equation*}
-    \int f(x)dx = \int \tilde{f}(g(x))g'(x)dx = \int \tilde{f}(g(x))dg(x)
-    \overset{\rm{*}}= \int \tilde{f}(u)du = \tilde{F}(u) + C \overset{\rm{*}}= \tilde{F}(g(x))+C
-  \end{equation*}
-\end{theorem}
+换元积分法的基本步骤：
+\begin{enumerate}
+\item 换元过程：通过换元($u=g(x)$或者$x=h(u)$)，将原不定积分$\int f(x)\mathrm{d}x$转化为更容易计算的不定积分$\int \tilde{f}(u)\frac{\mathrm{d}x}{\mathrm{d}u}\mathrm{d}u$
+\item 积分过程：计算不定积分$\int \tilde{f}(u)\frac{\mathrm{d}x}{\mathrm{d}u}\mathrm{d}u$，记积分结果$\tilde{F}(u)$
+\item 回代过程：将$u=g(x)$代入积分结果$\tilde{F}(u)$
+\end{enumerate}
 
-对不定积分使用第一类换元积分法时，需要注意以下几点：
-\begin{itemize}
-\item 上式第一个*表示令$g(x)=u$对原式作变量代换，第二个*表示回代$u=g(x)$得到不定积分的结果
-  \item 不能遗漏第二个*的回代，因为$\int f(x)dx$的计算结果应该是关于$x$的函数
-\end{itemize}
-%例题讲解
+这里我们不熟悉的是换元过程，接下来我们将结合几道例题来讲解如何换元。
 \begin{example}
-  计算 $\int \cos x \sin^2 x dx$.
+  (1) Calculate $\int 4x \sqrt{2x+1}\mathrm{d}x$, using the substitute $u=2x+1$
+  
+  (2) Calculate $\int \frac{8}{x^2+4}\mathrm{d}x$, using the substitute $x=2\tan u$
 \end{example}
-\begin{solution}
+总结这两个例子，换元过程需要干两件事情：被积函数$f(x)$转化为$\mathrm{f}(u)$；微分项$\mathrm{d}x$转化为$\frac{\mathrm{d}x}{\mathrm{d}u}\mathrm{d}u$. 
 
-\end{solution}
+让我们再看一个例子
+\begin{example}
+ Calculate $\int {\sin}^2 2x \cos x \mathrm{d}x$, using the substitute $u=\sin x$
+\end{example}
+我们发现，部分情况下，无须把$f(x)$与$\frac{\mathrm{d}x}{\mathrm{d}u}$中的每一个$x$都换元.适当保留部分x可以帮助更快的计算。
 
-% 基础练习-给出换元法
-基础练习：给出换元方式$u=g(x)$，计算不定积分 
-例子一$\int \frac{x}{\sqrt{x^2+4}}dx$. Use the substitution $u=x^2+4$；
-例子二$\int x^2(2x^3+5)^4dx$. Use the substitution $u=x^2+4$；
+一般来说，当给定换元方式为$u=g(x)$时，可以先观察原不定积分,若其形式为$\int f(g(x))g^{\prime}(x)\mathrm{d}x$，一个便捷的换元方式是
+计算$\frac{\mathrm{d}x}{\mathrm{d}u}=\frac{1}{g^{\prime}(x)}$（无须换元），若
 
-% 进阶练习-不给换元法
-进阶练习：自己寻找换元方式$u=g(x)$，计算不定积分
-例子一$\int x \sqrt{x^2+3}dx$；
-例子二$\int \tan x dx$；
-例子三$\int \sin^3x\cos^4xdx$
+% % 基础练习-给出换元法
+% 基础练习：给出换元方式$u=g(x)$，计算不定积分 
+% 例子一$\int \frac{x}{\sqrt{x^2+4}}dx$. Use the substitution $u=x^2+4$；
+% 例子二$\int x^2(2x^3+5)^4dx$. Use the substitution $u=x^2+4$；
 
-\subsection{定积分的第一类换元积分法}
-类似地，对于$\int_b^af(x)dx$，若对应不定积分有如上形式，则可以用定积分中的第一类换元积分法计算。
-\begin{theorem}[第一类换元积分法]
-  类似地，对于定积分$\int_{b}^{a} f(x)dx$，用$u=g(x)$对原式作变量代换，有：
-  \begin{equation*}
-    \int_b^a f(x)dx = \int_b^a \tilde{f}(g(x))g'(x)dx = \int_b^a \tilde{f}(g(x))dg(x)
-    \overset{\rm{*}}= \int_{g(b)}^{g(a)} \tilde{f}(u)du = \tilde{F}(g(a))-\tilde{F}(g(b)) 
-  \end{equation*}
-\end{theorem}
 
-对定积分使用第一类换元积分法时，需要注意以下几点：
-\begin{itemize}
-\item 换元后的定积分$\int_{g(b)}^{g(a)}\tilde{f}(u)du$中的上下限$g(a)$和$g(b)$必须与原来定积分的上下限$a$和$b$相对应，无须考虑$a$与$b$之间大小问题。
-  \item 与不定积分的第一类换元积分法相比，定积分只需要求值，无须算出具体原函数，故最后无须回代$u=g(x)$
-\end{itemize}
-例子一$\int_2^{5} x \sqrt{x^2+3}dx$；
-例子二$\int_{0}^{\frac{\pi}{2}} \tan x dx$；
-例子三$\int_0^{\frac{\pi}{2}} \sin^3x\cos^4xdx$
 
-\section{第二类换元积分法}
-\subsection{不定积分的第二类换元积分法}
-对于无法直接求出，也不适用第一类换元积分法的不定积分$\int f(x)dx$。
-第二类变换指的是用$x=\varphi(t)$代入
-若满足以下条件，则可以用第二类换元积分法计算。
-\begin{itemize}
-\item 能找到合适换元$x=\varphi(t)$, 变换后不定积分形式更简单。
-变换规则:$\int f(x)dx = \int f(\varphi(t))d\varphi(t) = \int f(\varphi(t))\varphi '(t)dt$ 
-\item 函数$f(\varphi(t))\varphi '(t)$的不定积分容易计算，即$\int f(\varphi(t))\varphi '(t)dt = \tilde{F}(u)$易知.
-\end{itemize}
 
-\subsection{定积分的第二类换元积分法}
-\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \section{Integrate without a given substitution *}
+% 事实上，用换元法积分时，换元方式$u=g(x)$通常是未知的。以下简单介绍第一类换元积分法和第二类换元积分法，这是人们进行换元积分时最常用的两种方法。前一节介绍的换元积分法本质上就是这两种方法。
+% \subsection{第一类换元积分法}
+
+% 对于$\int f(x) \mathrm{d}x$，若满足以下两点，则可以用第一类换元积分法计算。
+% \begin{itemize}
+% \item $f(x)$形如$\tilde{f}(g(x))g^{\prime}(x)$，即$\int f(x)dx = \int \tilde{f}(g(x))g'(x)dx = \int \tilde{f}(g(x))dg(x)$；
+% \item 函数$\tilde{f}(u)$的不定积分容易计算，即$\int \tilde{f}(u)du = \tilde{F}(u)$易知.
+% \end{itemize}
+% \begin{theorem}[第一类换元积分法-不定积分]
+% 对于不定积分$\int f(x)dx$，用$u=g(x)$对原式作变量代换，于是：
+%   \begin{equation*}
+%     \int f(x)dx = \int \tilde{f}(g(x))g'(x)dx = \int \tilde{f}(g(x))dg(x)
+%     \overset{\rm{*}}= \int \tilde{f}(u)du = \tilde{F}(u) + C \overset{\rm{*}}= \tilde{F}(g(x))+C
+%   \end{equation*}
+% \end{theorem}
+
+% 对不定积分使用第一类换元积分法时，需要注意以下几点：
+% \begin{itemize}
+% \item 上式第一个*表示令$g(x)=u$对原式作变量代换，第二个*表示回代$u=g(x)$得到不定积分的结果
+%   \item 不能遗漏第二个*的回代，因为$\int f(x)dx$的计算结果应该是关于$x$的函数
+% \end{itemize}
+% %例题讲解
+% \begin{example}
+%   计算 $\int \cos x \sin^2 x dx$.
+% \end{example}
+% \begin{solution}
+
+% \end{solution}
+
+
+% % 进阶练习-不给换元法
+% 练习：自己寻找换元方式$u=g(x)$，计算不定积分
+% 例子一$\int x \sqrt{x^2+3}dx$；
+% 例子二$\int \tan x dx$；
+% 例子三$\int \sin^3x\cos^4xdx$
+
+% 类似地，对于$\int_b^af(x)dx$，若对应不定积分有如上形式，则可以用定积分中的第一类换元积分法计算。
+% \begin{theorem}[第一类换元积分法-定积分]
+%   类似地，对于定积分$\int_{b}^{a} f(x)dx$，用$u=g(x)$对原式作变量代换，有：
+%   \begin{equation*}
+%     \int_b^a f(x)dx = \int_b^a \tilde{f}(g(x))g'(x)dx = \int_b^a \tilde{f}(g(x))dg(x)
+%     \overset{\rm{*}}= \int_{g(b)}^{g(a)} \tilde{f}(u)du = \tilde{F}(g(a))-\tilde{F}(g(b)) 
+%   \end{equation*}
+% \end{theorem}
+
+% 对定积分使用第一类换元积分法时，需要注意以下几点：
+% \begin{itemize}
+% \item 换元后的定积分$\int_{g(b)}^{g(a)}\tilde{f}(u)du$中的上下限$g(a)$和$g(b)$必须与原来定积分的上下限$a$和$b$相对应，无须考虑$a$与$b$之间大小问题。
+%   \item 与不定积分的第一类换元积分法相比，定积分只需要求值，无须算出具体原函数，故最后无须回代$u=g(x)$
+% \end{itemize}
+% 例子一$\int_2^{5} x \sqrt{x^2+3}dx$；
+% 例子二$\int_{0}^{\frac{\pi}{2}} \tan x dx$；
+% 例子三$\int_0^{\frac{\pi}{2}} \sin^3x\cos^4xdx$
+
+% \subsection{第二类换元积分法}
+% 对于无法直接求出，也不适用第一类换元积分法的不定积分$\int f(x)dx$。
+% 第二类变换指的是用$x=\varphi(t)$代入
+% 若满足以下条件，则可以用第二类换元积分法计算。
+% \begin{itemize}
+% \item 能找到合适换元$x=\varphi(t)$, 变换后不定积分形式更简单。
+% 变换规则:$\int f(x)dx = \int f(\varphi(t))d\varphi(t) = \int f(\varphi(t))\varphi '(t)dt$ 
+% \item 函数$f(\varphi(t))\varphi '(t)$的不定积分容易计算，即$\int f(\varphi(t))\varphi '(t)dt = \tilde{F}(u)$易知.
+% \end{itemize}
+
+ \end{document}
